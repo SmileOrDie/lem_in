@@ -6,7 +6,7 @@
 /*   By: shamdani <shamdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 11:16:36 by shamdani          #+#    #+#             */
-/*   Updated: 2016/01/04 17:20:56 by shamdani         ###   ########.fr       */
+/*   Updated: 2016/01/04 18:04:22 by shamdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,14 @@ static void		ft_init(t_env *e)
 	e->cab_l = NULL;
 }
 
-int				main(void)
+int				main(int a, char **ac)
 {
 	t_env		e;
 	int			i;
 
 	i = 1;
 	ft_init(&e);
-	if (-1 == (parsefile(&e)))
+	if (a > 1 || ac[1] || (-1 == (parsefile(&e))))
 	{
 		write(2, "ERROR\n", 6);
 		return (0);
