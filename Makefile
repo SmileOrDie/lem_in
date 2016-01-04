@@ -6,7 +6,7 @@
 #    By: shamdani <shamdani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/04 13:11:01 by shamdani          #+#    #+#              #
-#    Updated: 2016/01/04 13:14:28 by shamdani         ###   ########.fr        #
+#    Updated: 2016/01/04 17:37:42 by shamdani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ INCLUDES=-I ./libft/includes
 LIBS=-L ./libft -l ft
 
 SRC=	./srcs/main.c \
-		./srcs/space_-_split.c \
+		./srcs/space_m_split.c \
 		./srcs/pars.c \
 		./srcs/browse.c \
 		./srcs/link_cab.c
@@ -54,5 +54,8 @@ rego: fclean all
 	@./srcs/map.sh
 	@(echo "version: $(VERSION)")
 	@(echo "[\033[32m$(NAME)\033[00m]")
+	@(rm -rf $(NAME))
+	@($(MAKE) -C ./libft fclean)
+	@(rm -rf $(OBJ))
 
 .PHONY: all build clean fclean re v rego

@@ -6,18 +6,18 @@
 /*   By: shamdani <shamdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 11:16:36 by shamdani          #+#    #+#             */
-/*   Updated: 2016/01/04 13:14:53 by shamdani         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:22:34 by shamdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void		check_link(t_env *e)
+void			check_link(t_env *e)
 {
-	t_cab *t;
-	t_link *link;
-	int nb;
-	int j;
+	t_cab		*t;
+	t_link		*link;
+	int			nb;
+	int			j;
 
 	t = e->pos_start;
 	while (t)
@@ -56,10 +56,10 @@ static void		link_save2(t_env *e, t_link *s)
 	s->next = NULL;
 }
 
-int 			link_save(char **tab, t_env *e)
+int				link_save(char **tab, t_env *e)
 {
-	int		i;
-	t_link	*s;
+	int			i;
+	t_link		*s;
 
 	i = 0;
 	if (len_tab(tab) == 2)
@@ -90,11 +90,11 @@ static void		save_cab2(t_env *e, t_cab *s)
 		s->next = NULL;
 }
 
-int			save_cab(char *line, t_env *e)
+int				save_cab(char *line, t_env *e)
 {
-	t_cab	*s;
-	char	**tab;
-	char	**t;
+	t_cab		*s;
+	char		**tab;
+	char		**t;
 
 	t = NULL;
 	if (!(tab = sp_split(line)))

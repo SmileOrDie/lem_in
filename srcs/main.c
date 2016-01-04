@@ -6,7 +6,7 @@
 /*   By: shamdani <shamdani@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/04 11:16:36 by shamdani          #+#    #+#             */
-/*   Updated: 2016/01/04 13:14:59 by shamdani         ###   ########.fr       */
+/*   Updated: 2016/01/04 17:20:56 by shamdani         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,23 +66,6 @@ void			init_env(t_env *e)
 	check_link(e);
 }
 
-void			add_list(t_cab *cab, t_env *e, int i)
-{
-	t_list		*n;
-	t_list		*tmp;
-
-	if (i == 1)
-		tmp = e->browse;
-	if (!(n = (t_list *)malloc(sizeof(t_list))))
-		return ;
-	n->n = 0;
-	n->browse = cab;
-	n->next = tmp;
-	if (tmp)
-		e->browse->prev = n;
-	e->browse = n;
-}
-
 static void		print_browse(t_list *bro, int i, int max)
 {
 	t_list		*t;
@@ -105,7 +88,7 @@ static void		print_browse(t_list *bro, int i, int max)
 		--i;
 	}
 	if (e)
-		write(1,"\n", 1);
+		write(1, "\n", 1);
 }
 
 static void		ft_init(t_env *e)
@@ -118,7 +101,7 @@ static void		ft_init(t_env *e)
 	e->cab_l = NULL;
 }
 
-int 			main(void)
+int				main(void)
 {
 	t_env		e;
 	int			i;
@@ -135,7 +118,7 @@ int 			main(void)
 	if (e.browse)
 		while ((unsigned int)i <= e.worms * e.start)
 		{
-			print_browse(e.browse , i, e.worms);
+			print_browse(e.browse, i, e.worms);
 			if (e.browse->next)
 				e.browse = e.browse->next;
 			i++;
