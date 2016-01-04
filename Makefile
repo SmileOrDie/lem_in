@@ -1,6 +1,6 @@
 
 NAME=lem-in
-VERSION=1.0.5
+VERSION=1.1.0
 CFLAGS= -Wall -Werror -Wextra
 INCLUDES=-I ./libft/includes
 LIBS=-L ./libft -l ft
@@ -33,14 +33,15 @@ fclean: clean
 
 re: fclean all
 
-rego: fclean all
-	@./srcs/map.sh
-
 v:
 	@(echo "version: $(VERSION)")
 
 finish:
 	@(echo "[\033[32m$(NAME)\033[00m]")
 
-.PHONY: all build clean fclean re v
+rego: fclean all
+	@./srcs/map.sh
+	@(echo "version: $(VERSION)")
+	@(echo "[\033[32m$(NAME)\033[00m]")
 
+.PHONY: all build clean fclean re v rego

@@ -44,7 +44,7 @@ typedef struct			s_env
 }						t_env;
 
 
-int						browse(t_cab *s, t_env *env, int l, int prof);
+//int						browse(t_cab *s, t_env *env, int l, int prof);
 int						len_tab(char **s);
 int						new_bro(t_env *e);
 int						free_tab(char ***tab, char ***tab1, int ret);

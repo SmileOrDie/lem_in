@@ -1,8 +1,8 @@
 #include "lem_in.h"
 
-int		free_tab(char ***tab,char ***tab2, int ret)
+int				free_tab(char ***tab,char ***tab2, int ret)
 {
-	int	i;
+	int			i;
 
 	i = 0;
 	if (*tab)
@@ -27,9 +27,9 @@ int		free_tab(char ***tab,char ***tab2, int ret)
 	return (ret);
 }
 
-int		len_tab(char **s)
+int				len_tab(char **s)
 {
-	int	i;
+	int			i;
 
 	i = 0;
 	if (s)
@@ -38,30 +38,10 @@ int		len_tab(char **s)
 	return (i);
 }
 
-// int		len_brow(t_list *cab, int pos)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (!cab)
-// 		return (0);
-// 	while(cab)
-// 	{
-// 		++i;
-// 		ft_putnbr(cab->browse->check);
-// 		write(1, "\n", 1);
-// 		if (pos == 0)
-// 			cab->browse->check = 0;
-// 		cab = cab->next;
-// 		--pos;
-// 	}
-// 	return (i);
-// }
-
 static int		browse(t_cab *s, t_env *env, int l, int prof)
 {
-	int	i;
-	int	end;
+	int			i;
+	int			end;
 
 	i = 0;
 	end = 0;	
@@ -86,10 +66,10 @@ static int		browse(t_cab *s, t_env *env, int l, int prof)
 	return (end);
 }
 
-int		new_bro(t_env *e)
+int				new_bro(t_env *e)
 {
-	int	prof;
-	int	res;
+	int			prof;
+	int			res;
 
 	prof = 0;
 	while (prof <= e->start)
