@@ -29,12 +29,13 @@ int				nb_link(char *name, t_env *e)
 	return (i);
 }
 
-t_cab			*ft_l_cab(char *name, t_env *e)
+t_cab			*ft_l_cab(char *name, t_env *e, int i)
 {
 	t_cab		*t;
 
 	t = e->pos_start;
-	e->start++;
+	if (i == 0)
+		e->start++;
 	while (t)
 	{
 		if (ft_strcmp(name, t->name) == 0)
@@ -98,7 +99,7 @@ static int		analyse(char *line, t_env *e, int i)
 	return (analyse2(line, str, str_p, e));
 }
 
-int				parsefile(t_env *e)
+int				parsefile(t_env *e, int fd)
 {
 	char		*line;
 	int			ret;
@@ -106,7 +107,7 @@ int				parsefile(t_env *e)
 	int			an;
 
 	i = 0;
-	while ((ret = get_next_line(0, &line)) >= 0 || !line)
+	while ((ret = get_next_line(fd, &line)) >= 0 || !line)
 	{
 		if (!(an = analyse(line, e, i)))
 			return (-1);
@@ -118,7 +119,7 @@ int				parsefile(t_env *e)
 		free(line);
 	}
 	write(1, "\n", 1);
-	if (line)
+	if (line && ret != -1)
 		free(line);
 	return (ret);
 }

@@ -30,9 +30,9 @@ void			check_link(t_env *e)
 		while (j < nb && nb > 0)
 		{
 			if (ft_strcmp(link->link[0], t->name) == 0)
-				t->link[j++] = ft_l_cab(link->link[1], e);
+				t->link[j++] = ft_l_cab(link->link[1], e, 0);
 			else if (ft_strcmp(link->link[1], t->name) == 0)
-				t->link[j++] = ft_l_cab(link->link[0], e);
+				t->link[j++] = ft_l_cab(link->link[0], e, 0);
 			link = link->next;
 		}
 		t->link[j] = NULL;
@@ -99,7 +99,7 @@ int				save_cab(char *line, t_env *e)
 	t = NULL;
 	if (!(tab = sp_split(line)))
 		return (-1);
-	if (len_tab(tab) == 3 && tab[0][0] != 'L')
+	if (len_tab(tab) == 3 && tab[0][0] != 'L' && !ft_l_cab(tab[0], e, 1))
 	{
 		if (!(s = (t_cab *)malloc(sizeof(t_cab))))
 			return (-1);

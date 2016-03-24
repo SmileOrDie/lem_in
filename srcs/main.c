@@ -108,13 +108,14 @@ int				main(int a, char **ac)
 
 	i = 1;
 	ft_init(&e);
-	if (a > 1 || ac[1] || (-1 == (parsefile(&e))))
+	if (a == 1 && (-1 == (parsefile(&e, 0))))
 	{
 		write(2, "ERROR\n", 6);
 		return (0);
 	}
-	init_env(&e);
-	new_bro(&e);
+	if(a == 3 && ac[2])
+		mlx_affiche(&e, ac);
+	resolv(&e, a);
 	if (e.browse)
 		while ((unsigned int)i <= e.worms * e.start)
 		{

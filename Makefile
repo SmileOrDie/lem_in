@@ -20,7 +20,9 @@ SRC=	./srcs/main.c \
 		./srcs/space_m_split.c \
 		./srcs/pars.c \
 		./srcs/browse.c \
-		./srcs/link_cab.c
+		./srcs/link_cab.c \
+		./srcs/mlx_print.c
+
 
 OBJ=$(SRC:.c=.o)
 
